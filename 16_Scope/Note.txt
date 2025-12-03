@@ -1,0 +1,9 @@
+
+
+
+
+                            | Scope Type     | Meaning                                              | Example Keyword Affected |
+                            | -------------- | ---------------------------------------------------- | ------------------------ |
+                            | Block Scope    | Variables live inside `{}`                           | `let`, `const`           |
+                            | Function Scope | Variables live inside `function`                     | `var`, `let`, `const`    |
+                            | Lexical Scope  | Inner functions can access variables of outer scopes | (based on where defined) |

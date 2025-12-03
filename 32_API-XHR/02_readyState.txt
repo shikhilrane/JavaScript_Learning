@@ -1,0 +1,11 @@
+                                                        readyState
+
+we will get any of the following status if we log xhr.readyState
+
+                    Value   State              Description
+                    -----------------------------------------------------------
+                    0      UNSENT             The request has been created, but open() hasn't been called yet.
+                    1      OPENED             open() has been called. The request is ready to be configured.
+                    2      HEADERS_RECEIVED   send() has been called. Response headers and status are available.
+                    3      LOADING            The response is being downloaded. responseText holds partial data.
+                    4      DONE               The operation is complete. Full response is available.

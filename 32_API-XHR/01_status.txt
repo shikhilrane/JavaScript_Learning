@@ -1,0 +1,76 @@
+                                                      Status Code
+we will get any of the following status if we log xhr.status
+
+one-line explanation for each HTTP status code :
+
+🔵 1xx – Informational
+100 Continue – Initial part of request received, continue with the rest.
+101 Switching Protocols – Server is switching protocols as requested.102 Processing – Server has received and is processing the request (WebDAV).
+103 Early Hints – Preload resources while server prepares response.
+
+🟢 2xx – Success
+200 OK – Request was successful.
+201 Created – Resource created successfully.
+202 Accepted – Request accepted for processing, not completed yet.
+203 Non-Authoritative Information – Response from a third-party source.
+204 No Content – Successful but no content to return.
+205 Reset Content – Client should reset the view (like a form).
+206 Partial Content – Partial data returned (used in range requests).
+207 Multi-Status – Multiple status codes for different parts (WebDAV).
+208 Already Reported – Resource already reported in a previous response.
+226 IM Used – Server has fulfilled a request with instance-manipulations.
+
+🟡 3xx – Redirection
+300 Multiple Choices – Multiple options for the requested resource.
+301 Moved Permanently – Resource moved to a new URL permanently.
+302 Found – Temporarily located at a different URL.
+303 See Other – See another URL using GET.
+304 Not Modified – Resource not changed, use cached version.
+305 Use Proxy – Use the specified proxy (deprecated).
+306 Switch Proxy – Reserved; not used.
+307 Temporary Redirect – Temporarily redirected; method unchanged.
+308 Permanent Redirect – Permanently redirected; method unchanged.
+
+🔴 4xx – Client Errors
+400 Bad Request – Malformed request syntax or invalid request.
+401 Unauthorized – Authentication required or failed.
+402 Payment Required – Reserved for future use.
+403 Forbidden – Server refuses to authorize request.
+404 Not Found – Resource could not be found.
+405 Method Not Allowed – Method not supported for this resource.
+406 Not Acceptable – Resource not acceptable per client headers.
+407 Proxy Authentication Required – Proxy auth required.
+408 Request Timeout – Client took too long to send the request.
+409 Conflict – Request conflicts with current state of server.
+410 Gone – Resource is permanently gone.
+411 Length Required – Content-Length header required.
+412 Precondition Failed – Preconditions in headers not met.
+413 Payload Too Large – Request entity too large.
+414 URI Too Long – Request URI is too long.
+415 Unsupported Media Type – Media type is not supported.
+416 Range Not Satisfiable – Invalid range specified.
+417 Expectation Failed – Expect header expectations not met.
+418 I'm a teapot – Easter egg for a teapot, not a coffee maker.
+421 Misdirected Request – Request sent to wrong server.
+422 Unprocessable Entity – Semantic error in request (WebDAV).
+423 Locked – Resource is locked (WebDAV).
+424 Failed Dependency – Failed due to earlier request failure (WebDAV).
+425 Too Early – Premature request might be replayed.
+426 Upgrade Required – Client must upgrade protocol (e.g., to TLS).
+428 Precondition Required – Preconditions needed for safe request.
+429 Too Many Requests – Rate limit exceeded.
+431 Request Header Fields Too Large – Header fields too large.
+451 Unavailable For Legal Reasons – Blocked for legal reasons.
+
+🔴 5xx – Server Errors
+500 Internal Server Error – Generic server error.
+501 Not Implemented – Method not supported by server.
+502 Bad Gateway – Invalid response from upstream server.
+503 Service Unavailable – Server is down or overloaded.
+504 Gateway Timeout – Upstream server timeout.
+505 HTTP Version Not Supported – Unsupported HTTP version.
+506 Variant Also Negotiates – Content negotiation issue.
+507 Insufficient Storage – Server out of storage (WebDAV).
+508 Loop Detected – Infinite loop detected (WebDAV).
+510 Not Extended – Further extensions required.
+511 Network Authentication Required – Network login required.

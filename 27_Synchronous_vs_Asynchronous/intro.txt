@@ -1,0 +1,54 @@
+                                            Synchronous vs Asynchrnous code
+
+1. Introduction to Synchronous and Asynchrnous code
+A. Synchronous - it runs line by line (ek kaam start hoke finish hoga uske baad hi agla kaam shuru hoga)
+example - 
+    code A - 5 seconds      = This code will run and finish in 5 seconds 
+    code B - 2 seconds      = Then this code will run and finish in 2 seconds
+    code C - 11 seconds     = Then this code will run and finish in 11 seconds
+    code D - 3 seconds      = Then this code will run and finish in 3 seconds
+                            Total time required to finish all these tasks is 5 + 2 + 11 + 3 = 21 seconds
+
+B. Asynchrnous - It runs code all together (saare kaam ek sath shuru kardo, jiska answer pehle aa jaye uska jawaab de dedena)
+example - 
+    code A - 5 seconds      = This code will run and finish in 5 seconds 
+    code B - 2 seconds      = This code will run and finish in 2 seconds
+    code C - 11 seconds     = This code will run and finish in 11 seconds
+    code D - 3 seconds      = This code will run and finish in 3 seconds
+                            Total time required to finish all these tasks is 11 seconds
+
+
+2. How to know if code is Synchronous or Asynchrnous code?
+Asynchrnous : 
+    setTimeout
+    setInterval
+    Promise
+    XMLHttpRequest
+    fetch
+    axios
+if we are using any of these in code then it will become Asynchrnous code otherwise it will be Synchronous code.
+
+3. What is Asynchrnous JS code?
+Sometime our final code depends on another's server, and in this case we don't know about how much time it will require to give answer
+so Asynchronous JS is a JavaScript code that doesn't execute in a strict top-to-bottom order — instead, it allows certain operations (like data fetching or timers) to happen in the background, without blocking the main thread. This helps keep your application fast and responsive.
+
+4. Sending and Receiving data of Asynchrnous code : 
+for sending - setTimeout, setInterval, Promise, XMLHttpRequest, fetch, axios
+    "Sending" means Initiating Asynchronous Operations
+    Method	            Purpose	Example Usage
+    setTimeout()	    Runs code after a delay	setTimeout(() => {}, 1000)
+    setInterval()	    Runs code repeatedly on interval	setInterval(() => {}, 1000)
+    Promise	            Represents a future value	new Promise((resolve) => {})
+    XMLHttpRequest	    Makes HTTP requests	xhr.open('GET', url)
+    fetch()	Makes       HTTP requests	fetch('url')
+    axios()	Makes       HTTP requests (library)	axios.get('url')
+
+for receiving - then catch, callbacks, async await, onreadystatechange, event listeners
+    "Receiving" means Handling the Response or Result
+    Method	                    Works With	                                        Purpose
+    .then()	                    Promises / fetch / axios	                        Handle successful result
+    .catch()	                Promises / fetch / axios	                        Handle errors
+    callbacks                   setTimeout, setInterval, custom async functions	    Handle result via function passed as parameter
+    async/await	                Promises	                                        Cleaner syntax for handling async code
+    onreadystatechange	        XMLHttpRequest	                                    Handle response state changes
+    event listeners	            Asynchronous events	                                Handle results like load, click, etc.

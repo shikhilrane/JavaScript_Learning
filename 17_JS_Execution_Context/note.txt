@@ -1,0 +1,23 @@
+There are two types of languages 
+    1. Interpreted languages = 
+        Code runs line by line
+        Code is read and executed line by line
+        Slower in performance
+        No prior compilation step
+        Example: Python, older JavaScript engines
+    2. Compiled languages = 
+        Code first checked then it gets run later
+        Code is translated into machine code before execution
+        Faster execution
+        Example: C, C++, Java (compiled to bytecode first)
+
+JavaScript is primarily an interpreted language, but with modern engines, it's also compiled
+JavaScript is both interpreted and Just-In-Time (JIT) compiled.
+                        |JS FILE| -> |PARSER| -> |AST| -> |CONVERSION TO M/C CODE| -> |CONVERTED M/C CODE| -> |CODE RUNS|
+                                        |
+                                        V
+According to ECMA, early error checking and scope of variable should be defined before running the code so JIT is compiler is used here
+
+Global Execution Context : 
+    1. Creation Phase : Creation of itself.
+    2. Code Execution Phase : Phase in which code is executed.

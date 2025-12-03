@@ -1,0 +1,36 @@
+JavaScript Runtime Environment : JS is interpreted, single threaded and synchronous in nature by default 
+    1. JavaScript Runtime Environment (JRE) is a container, which has all the things require to run JS Code.
+    2. JRE contains - JS Engine, Web API(to connect with outer environment), Event loop, callback queue, microtask queue.
+    3. JS engine is heart of the JRE
+    4. Every browser has JRE in it so that it can run JS Code
+    5. If we want to run JS outside the browser we require Node JS which is runtime environment to run JS outside browser
+    6. There are some common APIs for browser and node like setTimeOut(), setInterval() but it works differently in browser and in Node
+    7. JS Engine Architecture : 
+                    |JS FILE| -> |PARSER| -> |AST| -> |CONVERSION TO M/C CODE| -> |CONVERTED M/C CODE| -> |CODE RUNS|
+        1. JS File - Human Readable Code
+        2. PARSER - It checks the code for syntactic errors line by line, if error detected by parser then code execution stops
+        3. AST - Once parser checked all the code and get satisfied with no error, then it creates a Data strucure AST (Tree kind of structure)
+        4. CONVERSION TO M/C CODE - Once AST created by parser then JS engine converts it into m/c code.
+    8. Web APIs (Browser):
+        - Asynchronous functions like setTimeout, fetch, DOM events, etc., are handled by the browser (or environment like Node.js).
+        - These do not run in the call stack directly. They are managed by Web APIs and scheduled for later.
+
+    9. Callback Queue (Task Queue):
+        - Once an asynchronous operation completes, its callback is sent to the callback queue.
+        - This queue holds callbacks waiting to be executed.
+
+    10. Microtask Queue: (USED IN PROMISES)
+        - Holds high-priority tasks like Promise callbacks (then/catch/finally) and queueMicrotask.
+        - After the call stack is empty, the Event Loop runs all microtasks before moving to the callback queue.
+        - This ensures microtasks are executed as soon as possible, giving them priority over other async tasks like setTimeout.
+        - Contains high-priority tasks like:
+            Promise.then()
+            Promise.catch()
+            Promise.finally()
+            queueMicrotask()
+
+    10. Event Loop:
+        - Constantly checks if the call stack is empty.
+        - If it is, and there's a callback in the queue, the Event Loop moves that callback to the call stack to be executed.
+        - This ensures asynchronous callbacks run only after all current synchronous code has finished.
+        - This doesn't block synchronous code from executing.

@@ -1,0 +1,22 @@
+                                                    response & responseType
+
+The .response property of an XMLHttpRequest gives you the data returned from the server after a request is completed. What it returns depends on a few things:
+    1. By Default (responseType = "")
+        xhr.response will be a string (usually the body of the HTTP response).
+    Example:
+        xhr.responseType = "";
+        // xhr.response might return: "<html>...</html>" or JSON as a string
+
+    2. If responseType = "json"
+        xhr.response will be a JavaScript object automatically parsed from JSON.
+    Example:
+        xhr.responseType = "json";
+        // xhr.response might return: { id: 1, name: "John" }
+        
+    3. Other responseType values
+    responseType	    .response returns
+    "text"	            String
+    "json"	            Parsed JS object
+    "document"	        HTML/XML Document
+    "arraybuffer"	    Binary data (ArrayBuffer)
+    "blob"              Binary Blob (e.g., for files)

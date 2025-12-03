@@ -1,0 +1,194 @@
+                                                        JavaScript DOM
+                                             --------------------------------------
+
+(CaC)
+1. DOM stands for Document Object Model. It is a programming interface for web documents like HTML and XML. The DOM represents the page so that programs (like JavaScript) can read, manipulate, and update the structure, style, and content dynamically.
+
+2. console.log(window); => it prints the window object, which represents the global object in a web browser.
+   2.1 It is the top-level object in the browser's JavaScript environment.
+   2.2 It represents the browser window or tab.
+   2.3 All global JavaScript variables and functions are actually properties of window.
+
+3.  What You See in the Console:
+The browser will display a collapsible object labeled Window that contains hundreds of properties and methods. Some of the common ones include:
+
+        Property / Method	       |              Description
+    document	                   |  The DOM of the page (window.document)
+    location	                   |  Info about the current URL
+    navigator	                   |  Info about the browser (user agent, platform, etc.)
+    console	                      |  The console object (for logging, errors, etc.)
+    alert()	                      |  Shows a popup alert
+    setTimeout()	                |  Runs a function after a delay
+    setInterval()	                |  Runs a function repeatedly at intervals
+    innerWidth, innerHeight	    |  Size of the window viewport
+    localStorage / sessionStorage |	Storage mechanisms
+    fetch()	                      |  For making network requests
+    history	                      |  Controls browser session history
+
+
+JS DOM (CodeHelp)
+   1. window object is global object which it a topmost object in JS
+
+   2. window object is created by browser, like if we type window.open() and window.close() then it will open and close window respectively
+
+   3. DOM (Document Object Model) : when we convert html code into JavaScript's object then that code is called a Document and overall conversion 
+      (HTML code -> JS Object (which is called a document)) it is called a DOM
+
+   4. tag -> token(with the help of tockeniser) -> node, and these node will create DOM i.e. tree like structure
+      How HTML is converted to the DOM:
+         When you load an HTML file in the browser, here's what happens under the hood:
+         1. **Tag**:
+            - The browser reads the raw HTML source code, which includes elements like:
+               <div>, <h1>, <p>, <script>, etc.
+         2. **Token**:
+            - The **HTML parser** (specifically, the **tokenizer**) breaks these tags into **tokens**.
+            - A token represents the start or end of an element, attributes, or text content.
+         Example:
+            <p class="intro">Hello</p>
+            => Tokens: 
+            - StartTagToken (p)
+            - AttributeToken (class="intro")
+            - TextToken ("Hello")
+            - EndTagToken (</p>)
+         3. **Node**:
+            - The browser converts these tokens into **nodes**.
+            - These nodes represent elements, text, comments, etc., in a structured format.
+            Types of nodes include:
+            - Element nodes (like `<div>`, `<p>`)
+            - Text nodes (like "Hello")
+            - Comment nodes (like `<!-- comment -->`)
+         4. **DOM Tree**:
+            - The nodes are organized into a **tree-like structure** known as the **DOM (Document Object Model)**.
+            - This tree mirrors the nesting and hierarchy of the HTML document.
+            - JavaScript can then interact with this DOM using the `document` object.
+         Example:
+            <div>
+               <p>Hello</p>
+            </div>
+            DOM Tree:
+            - div (Element node)
+               └─ p (Element node)
+                   └─ "Hello" (Text node)
+         So the full flow is:
+         HTML Tag ➝ Token ➝ Node ➝ DOM Tree (JavaScript-accessible structure)
+
+   5. Difference between Document and DOM
+      Document = HTML code that gets converts into JS Object is called document
+      DOM = It is a tree like structure formed with the help of multiple HTML nodes
+
+   6. BOM (Browser Object Model) : It allows JavaScript to interact with the browser outside the webpage, such as:
+                                   The window (browser tab)
+                                   The navigator (browser info)
+                                   The location (URL)
+                                   The history (back/forward navigation)
+                                   The screen (screen size, resolution)
+      BOM = JavaScript’s way to talk to the browser itself (not the web page)
+
+   7. Example :-
+      1. Simple HTML Page
+         <!DOCTYPE html>
+            <html>
+               <head>
+                  <title>My Page</title>
+               </head>
+               <body>
+                  <h1>Hello World</h1>
+                  <p>This is a paragraph.</p>
+               </body>
+            </html>
+      
+      2. What the document Represents (Rough Structure in JS Terms)
+         document = {
+            location: { ... },
+            title: "My Page",
+            body: {
+               tagName: "BODY",
+               children: [
+                  {
+                     tagName: "H1",
+                     innerText: "Hello World"
+                  },
+                  {
+                    tagName: "P",
+                    innerText: "This is a paragraph."
+                  }
+               ]
+            },
+            head: {
+               children: [
+                  {
+                    tagName: "TITLE",
+                    innerText: "My Page"
+                  }
+               ]
+            },
+         }
+
+         3. DOM Tree Representation
+         Document
+            └── html
+               ├── head
+               │   └── title ("My Page")
+               └── body
+                  ├── h1 ("Hello World")
+                  └── p ("This is a paragraph.")
+
+   8. DOM Manipulation : 
+      1. Fetching/Accessing element of the HTML 
+                     ├── id = document.getElementById();
+                     ├── className = document.getElementsByClassName();
+                     ├── TagName = document.getElementsByTagName();
+                     ├── querySelector = 1. document.querySelector(); (but when we try to target class that class is defined in multiple tags then it 
+                                                                   will only return first class amongst them)
+                                         2. (it will select all the elements of same class)
+                                         by using querySelector() and querySelectorAll(), we can target elements directly by . for class , # for id
+                                                                  and directly by tag name
+                                         E.g. document.querySelector(".textArea");
+                     ├── $0 = when select any element by clicking on it then on its HTML $0 appears and then go to console and type $0 then it will 
+                              return whole element
+      2. Update element of the HTML
+                     ├── innerHTML -> use to get/set inner HTML of any tag/element, 
+                                      get = target an element by cursor and click on it & type $0 console in to see, then store $0 in variable, then 
+                                            access variable.innerHTML, it will show the tag inside that particular tag
+                                      set = variable.innerHTML = "<p>Hello ji</p>" (It changes content of the element)
+                     ├── outerHTML -> use to get/set inner HTML of any tag/element, 
+                                      get = target an element by cursor and click on it & type $0 console in to see, then store $0 in variable, then 
+                                            access variable.outerHTML, it will show the tag outside that particular Tag
+                                      set = variable.outerHTML = "<p>This is outer html</p>" (It changes content of the element)
+                     ├── textContent -> use to get/set the raw text inside an element.
+                                        get = target an element by cursor and click on it & type $0 console in to see, then store $0 in variable,  
+                                              then access variable.textContent, text content with line breaks spaces and enter
+                                        set = variable.textContent = "<p>This is text content</p>"
+                     ├── innerText -> use to get/set the visible text inside an element.
+                                        get = target an element by cursor and click on it & type $0 console in to see, then store $0 in variable,  
+                                              then access variable.innerText, pure text content without line breaks spaces and enter
+                                        set = variable.innerText = "<p>This is inner text</p>"
+      3. Insert/add element to the HTML
+                     ├──createElement -> .appendChild()
+                     Creating an element = document.createElement("tagName"); and store it in variable
+                                           e.g. let heading = document.createElement("h1");
+                     adding content to element = heading.textContent = "This is SKR";
+                     adding element in HTML = let bodyTag = document.querySelector("body"); (<- this will use to make child of particular tag)
+                                              bodyTag.appendChild(heading) (<- it will use to add create element in particular tag)
+                                              (But this will add element at last of body tag)
+                     So, to add element at our desired position we neet to use, we need to use another methods
+                     ├──insertAdjacentElement()
+
+                                                ├── 1. beforeBegin -> add element before beginnig of element (outside before starting of element)
+                              ├── 1. position├──├── 2. afterBegin  -> add element at start of element (inside at start of specified element)
+                              ├                 ├── 3. beforeEnd   -> add element before ending of element (inside at end of specified element)
+                              ├                 ├── 4. afterEnd    -> add element after ending of element (outside specified element end)
+                              ├     
+                              ├     
+                              ├── 2. which HTML element you want to add (HTML content)
+
+      4. Removal of element (it is opposite of appendChild())
+                     ├──removeChild() (we must know parent and child to perform this)
+                              ├──let parent = document.querySelector("class or id of parent");
+                                 let child = document.querySelector("class or id of child");
+                                 parent.removeChild(child);
+
+                     Finding parent element using child element : 
+                        let child = document.querySelector(".childClass");
+                        let parent = child.parentElement;
+                        console.log(parent);
