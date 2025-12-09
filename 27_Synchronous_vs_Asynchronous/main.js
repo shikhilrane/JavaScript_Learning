@@ -1,4 +1,4 @@
-// JavaScript is single-threaded and synchronous in nature
+// JavaScript is single-threaded and synchronous in nature.
 // It means JS has single callstack and perform single task at a time
 
 // Synchronous code : the code that executes at same time that code will be called as synchronus code OR the code which you written is executing at 
