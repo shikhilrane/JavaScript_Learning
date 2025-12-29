@@ -144,7 +144,7 @@ deleteXhr.send();
 
 
 
-// above code is with onreadystate in which we want to use if condition. So to elim=minate this conditional we can use onLoad function instead of onreadystate
+// above code is with onreadystate in which we want to use if condition. So to eliminate this conditional we can use onLoad function instead of onreadystate
 /*
     1. GET
     xhr.onload = () => {
