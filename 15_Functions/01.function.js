@@ -137,9 +137,9 @@ console.log(passMessageStored + ", is it done?");
         let anotherWishlistPrintObj = anotherWishlistObj(5,3,4,87,5,8);
         console.log(anotherWishlistPrintObj);
 
-        // 4.1.5 another way to take arguments. it returns o/p as an array (it return array as we pass ...arguments as a parameter & return arguments. so, if we return or print same variable & same vairable with spread operator(i.e. ...) as parameter then it will always return as a array. here, parameter = ...argumets & return value = arguments)
-        function anotherWishlist(...arguments) {
-            return arguments
+        // 4.1.5 another way to take arguments. it returns o/p as an array (it return array as we pass ...args as a parameter & return args. so, if we return or print same variable & same vairable with spread operator(i.e. ...) as parameter then it will always return as a array. here, parameter = ...args & return value = args)
+        function anotherWishlist(...args) {
+            return args
         }
         let anotherWishlistPrint = anotherWishlist(5,3,4,87,5,8);
         console.log(anotherWishlistPrint);
