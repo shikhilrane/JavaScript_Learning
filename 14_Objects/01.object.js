@@ -106,6 +106,14 @@ console.log(car);       // we can not add, delete or modify from object after us
 // 15. Returns true if object is frozen
 console.log(Object.isFrozen(car));
 
+/*
+    | Method            | Add new property?  | Modify existing?  | Delete property? |
+    | ----------------- | -----------------  | ----------------  | ---------------- |
+    | preventExtensions | ❌ No              | ✅ Yes            | ✅ Yes            |
+    | seal              | ❌ No              | ✅ Yes            | ❌ No             |
+    | freeze            | ❌ No              | ❌ No             | ❌ No             |
+*/
+
 // 16. adding objects
 let obj1 = {
     1:"a",
@@ -126,7 +134,7 @@ for (const key in car) {
     console.log(car[key]);  // this way we can access values of object, (object[key])
 }
 
-// 18. we use Object.create(), when we want to extend class (We will see this later)
+// 18. we use Object.create(), when we want to extend class and use to access single property (We will see this later)
 let car1 = {
     company : "BMW",
     model : "340i",
@@ -154,10 +162,11 @@ let studentProfile = {
     class : 10
 }
 
-// 1st way
+// Creating keys and values
 let sP_Keys = Object.keys(studentProfile);
 let sP_Values = Object.values(studentProfile);
 
+// 1st way
 for (let i = 0; i < sP_Keys.length; i++) {
     let key = sP_Keys[i];
     let value = sP_Values[i];
