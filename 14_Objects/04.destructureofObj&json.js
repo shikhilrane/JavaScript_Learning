@@ -5,6 +5,7 @@ let course = {
     studentName : "Shikhil",
     age : 27,
     courseName : "full stack web development course",
+    techStack: ["java full stack", "mean"],
     city : {
         firstCity : "Nashik",
         secondCity : "Indore"
@@ -22,6 +23,9 @@ console.log(cN);
 
 let {city : {firstCity : fc}} = course;
 console.log(fc);
+
+let {techStack : [,angular]} = course;
+console.log(angular);
 
 // Destructuring of nested object in array
 
