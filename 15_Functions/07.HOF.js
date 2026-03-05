@@ -39,7 +39,7 @@ function greet(){                       // Callback function
 };
 greetMe(greet, "Shikhil")
 
-
+// Callback function = ek function jo dusre function ko argument me diya jata hai aur baad me execute hota hai.
 // Callback functions : Without passing name of functions in HOF we directly pass callback() in HOF and can pass any function when calling
 //    HOF using callback which is standard way to use callback function
 function hof(callback) {
