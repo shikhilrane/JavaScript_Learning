@@ -3,28 +3,29 @@
 
 //                                                    1. Global Scope
 var a = 10; // global variable
+let aa = 20
 
 // global variable executing in global scope
-console.log("Normal, ", a);
+console.log("Normal, ", a, aa);
 
 // global variable executing in block scope
 {
-    console.log("Block, ", a);
+    console.log("Block, ", a, aa);
 }
 
 // global variable executing in conditional
 if (true) {
-    console.log("Conditional, ", a);
+    console.log("Conditional, ", a, aa);
 }
 
 // global variable executing in loop
 for (let i = 0; i < 2; i++) {
-    console.log("Loop, ", a);
+    console.log("Loop, ", a, aa);
 }
 
 // global variable executing in function
 function sayHello() {
-    console.log("Function, ", a);
+    console.log("Function, ", a, aa);
 }
 sayHello();
 

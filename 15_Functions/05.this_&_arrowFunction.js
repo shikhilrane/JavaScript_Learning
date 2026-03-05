@@ -60,15 +60,39 @@ console.log(exeWishlist);
 
 // +++++++++++++++++++++++++++++++++++++++ this keyword in normal function VS arrow function +++++++++++++++++++++++++++++++++++++++ //
 
+// Normal function → this us object ka hota hai, jiske through function call hua hai
+// Arrow function → this lexical scope(nearest function scope) se aata hai
+
+
 // 1. normal function with this keyword
-function norFunc() {
+function test() {
     console.log(this);
 }
-norFunc();     // it will show o/p as global object
+test();        // this → global (this called through global object so using this of global object)
+
+let objj = {
+    test: function () {
+        console.log(this);
+    }
+};
+objj.test();    // this → objj (this called through objj object so using this of objj object)
 
 // 2. arrow function with this keyword
 let arrowFun = () => {
     console.log(this);
 }
-arrowFun();     // it will show o/p as empty object cause arrow function treat this keyword as 
+arrowFun();     // empty object {}, because arrow function uses the this value from the outer functional scope (lexical scope), but here no functional scope found so it shows nothing
 
+function outer() {
+    let obj = {
+        show: () => {
+            console.log(this);
+        }
+    };
+    obj.show();
+}
+outer();        // it will show something because, it's nearest functional scope (lexical scope) is outer() 
+
+
+// Normal function = thi of Object through which function is called
+// Arrow functional = this of Nearest functional (lexical) scope
