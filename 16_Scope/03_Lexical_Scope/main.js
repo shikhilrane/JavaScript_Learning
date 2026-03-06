@@ -7,9 +7,10 @@ function outer() {
     inner();
 }
 outer();
+
 //  A function can access variables from where it was defined, not from where it’s called.
 
-
+// Lexical scope = function apne bahar wale area se variables le leta hai jaha wo likha hua hai.
 
 /* 
     | Scope Type     | Meaning                                              | Example Keyword Affected |
