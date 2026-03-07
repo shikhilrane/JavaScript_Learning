@@ -1,0 +1,81 @@
+Import/Export :
+    1. Import/Export is used to share and reuse code between different files.
+    2. Import/Export ka use alag files ke beech code ko use (share) karne ke liye hota hai.
+    3. To use import and export, we need to tell Node that our project uses ES modules by adding "type": "module" in the package.json file.
+       To create package.json, go to the folder using the cd command and run npm init -y. Then add "type": "module" inside package.json.
+    4. To use import and export in the browser, we need to add type="module" in the <script> tag. (e.g. <script type="module" src="main.js"></script>)
+
+1. Basic Export/Import :
+    1. Creating and Exporting a function -> 
+        Created a greetings() function in greet.js and exported it directly from there
+            export function greetings() {
+                console.log("Hi, from greetings");
+            }
+    2. Importing and calling a function -> 
+        Imported a function from greet.js in main.js file 
+            import {greetings} from "./greet.js"
+        Calling function in main.js
+            greetings();
+
+2. Multiple Export/Import :
+    Same as Previous just multiple functions to be exported and imported
+
+3. Exporting at bottom of the file :
+    1. Export -> Export should be used at bottom of the file, so we create export{} at bottom of the file
+        export{
+            greetings,
+            PI
+        }
+    2. Import will be same as Previous
+
+4. Rename the function at Exporting :
+    1. Export Phase -> we can Rename the function when exporting a function with "as" keyword at bottom of file in export()
+        export{
+            greetings,
+            PI as PI_VALUE
+        }
+    2. Import Phase -> We have to use renamed name of function in importing Phase
+        import {greetings, PI_VALUE} from "./greet.js"
+        greetings();
+        console.log(PI_VALUE);
+
+5. Rename the function at Importing :
+    1. Export Phase -> no changes
+    2. Import Phase -> we can Rename the function at import a function with "as" keyword at importing statement
+        import {greetings as greetFunc, PI_VALUE} from "./greet.js"
+        greetFunc();
+        console.log(PI_VALUE);
+
+6. Default Exports :
+    1. Default export is used to export one main function, class, or variable from a file. It can be imported without using {}.
+    2. There can be only one default export
+    3. We can have as many as normal exports in our file but can only have single default export
+    4. If we use export default with a function, class, or variable, it can be imported with any name because there is only one default export in a file.
+    5. Example :
+        1. Export Phase -> use export default with function, class, or variable
+            export default function add(a,b){
+                return a+b;
+            }
+        2. Import Phase -> Can we imported without {} with any name
+            import addFunc from "./greet.js"
+            console.log(addFunc(5,8));
+
+7. Default export everything at one bundle as an object:
+    1. Export Phase -> 
+        function greetings() {
+            console.log("Hi, from greetings");
+        }
+        const PI = 22/7;
+        function add(a,b){
+            return a+b;
+        }
+        export default{
+            greetings,
+            PI_VALUE:PI,    // This is how alias do work here
+            add
+        }
+    2. Import Phase ->
+        import greet from "./greet.js"  // Imported with random name without {}
+        greet.greetings();              // used it like an object values
+        console.log(greet.PI_VALUE);
+        console.log(greet.add(5,8));
