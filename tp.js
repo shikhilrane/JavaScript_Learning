@@ -1,11 +1,6 @@
-let a = 10
-
-function outer() {
-    let name = "Shikhil";
-    function inner() {
-        console.log(name, a); // ✅ Can access 'name' from outer()
-    }
-    inner();
+let names = ["Pune", "Mumbai", "Nashik", "Nagpur"];
+function getNames(...arr) {
+    console.log(arr);
 }
 
-outer();
+getNames(...names);
