@@ -45,20 +45,20 @@ firstPara.addEventListener("click", changeText, true);
 // owl.addEventListener("click", addElEpCp2, true);
 // // Because during capturinf phase of propagation, execution will start from the parent node of document element so it will first execute outside element and then it will ececute the target element
 
-// // .stopPropagation() is use to stop propagation, it allows only specified element to execute (i.e. it won't bubble or capture further)
-// // 1. .stopPropagation() of bubbling phase
-// function addElEpSb1(e) {
-//     console.log("clicked inside the UL"); 
-//     e.stopPropagation()    
-// }
-// images.addEventListener("click", addElEpSb1, false);
+// .stopPropagation() is use to stop propagation, it allows only specified element to execute (i.e. it won't bubble or capture further)
+// 1. .stopPropagation() of bubbling phase
+function addElEpSb1(e) {
+    console.log("clicked inside the UL"); 
+    e.stopPropagation()    
+}
+images.addEventListener("click", addElEpSb1, false);
 
-// function addElEpSb2(e) {
-//     console.log("owl clicked propagation");     
-//     e.stopPropagation()
-// }
-// owl.addEventListener("click", addElEpSb2, false);
-// // Here, if we clicked on target (owl) then only that will be execute then it will stop propagating further towards it's parent element
+function addElEpSb2(e) {
+    console.log("owl clicked propagation");     
+    e.stopPropagation()
+}
+owl.addEventListener("click", addElEpSb2, false);
+// Here, if we clicked on target (owl) then only that will be execute then it will stop propagating further towards it's parent element
 
 // // 2. .stopPropagation() of capturing phase
 // function addElEpSc1(e) {

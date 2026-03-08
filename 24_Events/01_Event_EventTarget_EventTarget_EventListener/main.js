@@ -2,7 +2,7 @@
 
 //  CodeHelp
 
-let firstPara = document.getElementById("fpara");       // <== firstPara is the event target
+let firstPara = document.getElementById("fpara");       // <== firstPara is the event target element
 function changeText(){                                  // <== Event-Handler
     firstPara.textContent = "Text Changed";
 };
@@ -10,7 +10,14 @@ firstPara.addEventListener("click", changeText);        // <== "click" is the ev
 // |___________________________________________|
 //                       ^
 //                     | | |
-//  addEventListener is the method that adds the event handler as a listener on the event target
+//  addEventListener() is used to attach an event handler to an element for a specific event.
+
+/*
+    firstPara        →  Event target element
+    addEventListener →  method
+    click            →  event
+    changeText       →  Event-Handler or event handler function 
+*/
 
 // // 2. removing event-listener
 // firstPara.removeEventListener("click", changeText);

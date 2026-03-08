@@ -29,5 +29,5 @@ newLi.appendChild(addingTxt)                                 // pushed textNode 
 secondLang.replaceWith(newLi)                                // replaced second element of li with new element of li
 
 // Replacing any element with created element using outerHTML property
-let firstReplace = document.querySelector("li:first-Child"); // Targetted element
+let firstReplace = document.querySelector("li:first-child"); // Targetted element
 firstReplace.outerHTML = "<li>jQuery</li>"                   // Replaced targetted element with new element using outerHTML
