@@ -6,7 +6,10 @@ JavaScript Runtime Environment : JS is interpreted, single threaded and synchron
     5. If we want to run JS outside the browser we require Node JS which is runtime environment to run JS outside browser
     6. There are some common APIs for browser and node like setTimeOut(), setInterval() but it works differently in browser and in Node
     7. JS Engine Architecture : 
-                    |JS FILE| -> |PARSER| -> |AST| -> |CONVERSION TO M/C CODE| -> |CONVERTED M/C CODE| -> |CODE RUNS|
+            JS Engine has Callstack and Heap inside it
+                1. Callstack - Used for executing functions and managing the execution context.
+                2. Heap - Used for storing objects and dynamic memory allocation.
+            |JS FILE| -> |PARSER| -> |AST| -> |CONVERSION TO M/C CODE| -> |CONVERTED M/C CODE| -> |CODE RUNS|
         1. JS File - Human Readable Code
         2. PARSER - It checks the code for syntactic errors line by line, if error detected by parser then code execution stops
         3. AST - Once parser checked all the code and get satisfied with no error, then it creates a Data strucure AST (Tree kind of structure)
