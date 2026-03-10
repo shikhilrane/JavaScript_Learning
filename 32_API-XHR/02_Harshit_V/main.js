@@ -11,6 +11,16 @@ getXhr.responseType = "json";      // Setting the expected response format (shou
 console.log(getXhr.responseType);  // It will log the current responseType ("json" if set)
 console.log(getXhr.onerror);
 
+//                                      readyState values
+//      |  Value  |       State      |                      Meaning                           |
+//      | ------- | ---------------- | ------------------------------------------------------ |
+//      | ** 0 ** |      UNSENT      | Request create hui hai, lekin`open()` call nahi hua    |
+//      | ** 1 ** |      OPENED.     | `open()` call ho chuka hai, request initialize ho gayi |
+//      | ** 2 ** | HEADERS_RECEIVED | Server ne response headers bhej diye                   |
+//      | ** 3 ** |     LOADING      | Response body receive ho rahi hai                      |
+//      | ** 4 ** |       DONE       | Response complete ho gaya                              |
+
+
 // 1. GET Request
 console.log(getXhr.readyState);
 getXhr.open("get", getUrl);
@@ -25,7 +35,7 @@ getXhr.onreadystatechange = () => {    // This function will be call when readyS
         let xhr2 = new XMLHttpRequest();
         let id = getXhr.response[3].id;
         let url2 = `${getUrl}/${id}`;
-        xhr2.response = "json"
+        xhr2.responseType = "json"
         console.log(url2);
         xhr2.open("get", url2);
         xhr2.onreadystatechange = () => {
@@ -36,7 +46,7 @@ getXhr.onreadystatechange = () => {    // This function will be call when readyS
     }
 };
 
-getXhr.onerror = () => {
+getXhr.onerror = () => {            // It will trigger when network related error/s occurs
     console.error("GET Error");
 };
 
@@ -149,7 +159,7 @@ deleteXhr.send();
     1. GET
     xhr.onload = () => {
         console.log("GET Response:", xhr.response);
-        console.log(typeof xhr.response); // object
+        console.log(typeof xhr.response); // string
     };
 
     2. POST
