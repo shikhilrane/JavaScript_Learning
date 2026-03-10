@@ -1,6 +1,6 @@
 //                                                            Promise
 /*  
-  1. Promise is an object which handle the resulting value or completion state of a Asynchronous code
+  1. Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
   2. Jab ek Asynchronous code koi ek value return kar rha he, kya uski state he, ya kya wo reject ho gya, ya fir successful state he, ya fir pending state he. To uski state ko check karna aur uski returning value ko effective way me handle karna hi Promise he.
   3. There are 3 states of a Promise - 
         1. Pending(initial state neither rejected nor accepted), 
@@ -12,7 +12,7 @@
             3. if i failed to make the fried rice, status = promise reject (Message : Sorry! failed to make fried rice)
   4. As we know, Asynchronous code doesn't return value immediately but if we want to return value immediately then Promise do that thing but instead of returning value immediately it returns promise, the promise to supply the value at some point in the future (Matlab abhi mujhse promise lelo aur jab aapko value ki jarurat padegi tab value return kar dunga)
   5. Writing a Asynchronous code inside Promise is a good practice to follow
-  6. Promises always executes in microtask queue in memory (having higher preference than callback queue)
+  6. Promise callbacks (then, catch, finally) are placed in the Microtask Queue. (having higher preference than callback queue)
   7. Promise >> Callback Hell
 */
 
@@ -23,7 +23,7 @@ let firstPromise = new Promise((resolve, reject) => {
     // resolve(1);                              // 2. It shows promise fullfilled
     // reject(new Error("Internal error"));     // 3. It shows promise rejected (thrown a custom error)
 });
-// Note : to check state of promise type promise name in browser console but there's no point of using promise for synchronous code because synchronous code will run sequentially without any break. So. just use Promise for Asynchronous code
+// Note : to check state of promise, type promise name in browser console but there's no point of using promise for synchronous code because synchronous code will run sequentially without any break. So. just use Promise for Asynchronous code
 
 // 2. Promise() with Asynchronous code
 let secondPromise = new Promise((resolve, reject) => {
