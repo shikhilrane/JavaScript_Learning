@@ -1,15 +1,25 @@
                                                              AJAX
 
+        (AJAX (fetch() ya fir axios) ki help se browser background me server se request bhejta hai aur response lekar page ko update karta hai, bina page refresh kiye.)
     1. Ajax is a Asynchronous Javascript and XML(eXtensible Markup Language).
     2. XML is format of data which is deprecated now
     3. We will learn how to make HTTP Requests to server in backend (HTTP is the way to communicate with the server)
     4. Ajax is a set of web development techniques using many web technologies on "client-side" to create asynchronous web applications.
-    5. With ajax, we apps can send and retrieve data from server asynchronously (in the background) without interfering the display of web page
-    6. We dont use XML format anymore, instead modern way is to JSON now.
+    5. AJAX is an asynchronous technique that asynchronously communicates with the server to fetch data without interrupting the current execution or reloading the page and it can be implemented using XMLHttpRequest, Fetch API, or libraries like Axios.
+    6. We dont use XML format anymore, instead modern way is to use JSON now.
     7. We have 3 most common ways to create and send request to server
-        1. xmlHTTPRequest (old way of doing).
-        2. fetch API (new way of doing).
-        3. axios (Third party library).
+        1. XMLHttpRequest (Old way)
+           - Uses the XHR API
+           - Used in traditional AJAX implementations
+           - it returns => Raw response (usually string)
+           - To convt this string to json, use => JSON.parse(xhr.responseText)
+        2. Fetch API (Modern way)
+           - Uses fetch()
+           - Promise-based API provided by the browser
+        3. Axios (Third-party library)
+           - Uses XMLHttpRequest in the browser
+           - Uses http/https module in Node.js
+
     8. Data fetching flow :
         🧑‍💻 (User)   (Initiates the action (like opening the page or clicking a button).)
                 |
