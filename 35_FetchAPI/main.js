@@ -10,6 +10,42 @@ async function getAllUsers() {
 }
 getAllUsers();
 
+// With setTimeout()
+async function getAllUserswithSetTimeout() {
+  try {
+    setTimeout(async () => {
+      let fetchingData = await fetch("https://jsonplaceholder.typicode.com/users");
+      let data = await fetchingData.json();
+      console.log(data[7]);
+      console.log(data[7].company);
+      console.log(data[7].company.catchPhrase);
+    }, 5000);
+  } catch (error) {
+    console.log(err)
+  }
+}
+getAllUserswithSetTimeout();
+
+// with await delay()
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function getAllUsersWithAwaitDelay() {
+  try {
+    await delay(5000)
+    let fetchingData = await fetch("https://jsonplaceholder.typicode.com/users");
+    let data = await fetchingData.json();
+    console.log(data[7]);
+    console.log(data[7].company);
+    console.log(data[7].company.catchPhrase);
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+getAllUsersWithAwaitDelay();
+
 // 2nd by using .then() and .catch() 
 fetch('https://jsonplaceholder.typicode.com/users')
 .then((response) => {
