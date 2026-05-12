@@ -5,6 +5,12 @@ JavaScript Runtime Environment :
     1. JavaScript Runtime Environment (JRE) is a container which has everything required to run JavaScript code.
        (JRE ek complete environment hai jisme JS code run karne ke liye sari required cheeze hoti hain)
 
+       JavaScript Runtime Environment (JRE) is a complete environment required to run JavaScript code.
+       (JRE ek complete environment hai jisme JS code run karne ke liye sari required cheeze hoti hain)
+
+       It contains JS Engine, Web APIs, Event Loop, Callback Queue and Microtask Queue.
+       (Isme JS Engine, Web APIs, Event Loop, Callback Queue aur Microtask Queue hote hain)
+
     2. JRE contains :
             • JS Engine
             • Web APIs
