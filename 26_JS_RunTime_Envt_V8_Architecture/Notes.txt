@@ -1,39 +1,193 @@
-JavaScript Runtime Environment : JS is interpreted, single threaded and synchronous in nature by default 
-    1. JavaScript Runtime Environment (JRE) is a container, which has all the things require to run JS Code.
-    2. JRE contains - JS Engine, Web API(to connect with outer environment), Event loop, callback queue, microtask queue.
-    3. JS engine is heart of the JRE
-    4. Every browser has JRE in it so that it can run JS Code
-    5. If we want to run JS outside the browser we require Node JS which is runtime environment to run JS outside browser
-    6. There are some common APIs for browser and node like setTimeOut(), setInterval() but it works differently in browser and in Node
-    7. JS Engine Architecture : 
-            JS Engine has Callstack and Heap inside it
-                1. Callstack - Used for executing functions and managing the execution context.
-                2. Heap - Used for storing objects and dynamic memory allocation.
-            |JS FILE| -> |PARSER| -> |AST| -> |CONVERSION TO M/C CODE| -> |CONVERTED M/C CODE| -> |CODE RUNS|
-        1. JS File - Human Readable Code
-        2. PARSER - It checks the code for syntactic errors line by line, if error detected by parser then code execution stops
-        3. AST - Once parser checked all the code and get satisfied with no error, then it creates a Data strucure AST (Tree kind of structure)
-        4. CONVERSION TO M/C CODE - Once AST created by parser then JS engine converts it into m/c code.
-    8. Web APIs (Browser):
-        - Asynchronous functions like setTimeout, fetch, DOM events, etc., are handled by the browser (or environment like Node.js).
-        - These do not run in the call stack directly. They are managed by Web APIs and scheduled for later.
+JavaScript Runtime Environment :
+    JavaScript is interpreted, single threaded and synchronous by default.
+    (JavaScript by default ek time pe ek hi kaam karti hai aur line by line code execute karti hai)
 
-    9. Callback Queue (Task Queue):
-        - Once an asynchronous operation completes, its callback is sent to the callback queue.
-        - This queue holds callbacks waiting to be executed.
+    1. JavaScript Runtime Environment (JRE) is a container which has everything required to run JavaScript code.
+       (JRE ek complete environment hai jisme JS code run karne ke liye sari required cheeze hoti hain)
 
-    10. Microtask Queue: (USED IN PROMISES)
-        - Holds high-priority tasks like Promise callbacks (then/catch/finally) and queueMicrotask.
-        - After the call stack is empty, the Event Loop runs all microtasks before moving to the callback queue.
-        - This ensures microtasks are executed as soon as possible, giving them priority over other async tasks like setTimeout.
-        - Contains high-priority tasks like:
-            Promise.then()
-            Promise.catch()
-            Promise.finally()
-            queueMicrotask()
+    2. JRE contains :
+            • JS Engine
+            • Web APIs
+            • Event Loop
+            • Callback Queue
+            • Microtask Queue
 
-    10. Event Loop:
-        - Constantly checks if the call stack is empty.
-        - If it is, and there's a callback in the queue, the Event Loop moves that callback to the call stack to be executed.
-        - This ensures asynchronous callbacks run only after all current synchronous code has finished.
-        - This doesn't block synchronous code from executing.
+       (Ye sab milke JavaScript ko properly run karte hain)
+
+    3. JS Engine is the heart of the JRE.
+       (JS Engine actual component hai jo JavaScript code execute karta hai)
+
+    4. Every browser has its own JRE to run JavaScript code.
+       (Har browser ke paas apna runtime environment hota hai JS run karne ke liye)
+
+    5. To run JavaScript outside the browser we use Node.js.
+       (Browser ke bahar JS run karne ke liye Node.js use hota hai)
+
+    6. Some APIs are common in browser and Node.js like :
+            • setTimeout()
+            • setInterval()
+
+       But internally they work differently.
+       (Dono environments me APIs same lag sakti hain but internally implementation alag hoti hai)
+
+
+JavaScript Runtime Environment : 
+    ├── JS Engine
+    │     ├── Call Stack
+    │     │      └── Execution Context
+    │     │         ├── Memory Creation Phase
+    │     │         ├── Code Execution Phase
+    │     │         └── Lexical Environment
+    │     │                 ├── Environment Record
+    │     │                 └── Outer Environment Reference
+    │     └── Heap Memory
+    ├── Web APIs
+    ├── Callback Queue
+    ├── Microtask Queue
+    └── Event Loop
+
+
+A. JS Engine Architecture :
+    JS Engine converts JavaScript code into machine code and executes it.
+    (JS Engine JS code ko machine code me convert karke execute karta hai)
+
+    JS Engine contains :
+            • Call Stack
+            • Heap Memory
+
+    1. Call Stack :
+            Used for function execution and execution context management.
+            (Functions execute karne aur execution contexts manage karne ke liye use hota hai)
+
+    2. Heap Memory :
+            Used for storing objects and dynamic memory allocation.
+            (Objects aur dynamic data store karne ke liye use hota hai)
+
+    JS Engine Internal Flow :
+
+        |JS FILE|
+            ↓
+        |PARSER|
+            ↓
+        |AST|
+            ↓
+        |CONVERSION TO MACHINE CODE|
+            ↓
+        |MACHINE CODE|
+            ↓
+        |CODE EXECUTION|
+
+
+        1. JS File :
+                Human readable JavaScript code.
+                (Ye normal JS code hota hai jo humans likhte hain)
+
+        2. Parser :
+                Checks code for syntax errors.
+                (Ye syntax errors check karta hai)
+
+                If syntax error found then execution stops.
+                (Agar syntax error mila toh code run nahi hota)
+
+        3. AST (Abstract Syntax Tree) :
+                Parser converts code into a tree-like structure.
+                (Parser code ko ek tree structure me convert karta hai)
+
+        4. Conversion To Machine Code :
+                JS Engine converts AST into machine code.
+                (JS Engine AST ko machine code me convert karta hai)
+
+        5. Machine Code :
+                CPU understandable code.
+                (Ye CPU ko samajhne wala code hota hai)
+
+        6. Code Execution :
+                Machine code executes using Call Stack and Execution Context.
+                (Execution Call Stack aur Execution Context ki help se hota hai)
+
+
+
+    Execution Context :
+        Environment where JavaScript code executes.
+        (Ye wo environment hai jaha JS code execute hota hai)
+
+        Types :
+                • Global Execution Context
+                • Function Execution Context
+
+
+
+    Execution Context contains :
+
+        1. Memory Creation Phase :
+                Memory allocation happens before execution.
+                (Execution start hone se pehle variables/functions ko memory milti hai)
+
+        2. Code Execution Phase :
+                Actual code executes line by line.
+                (Actual code line by line execute hota hai)
+
+        3. Lexical Environment :
+                Stores current scope information and outer scope reference.
+                (Ye current scope aur parent scope ki information rakhta hai)
+
+                Lexical Environment contains :
+
+                    • Environment Record
+                        Stores variables, functions and parameters.
+                        (Variables, functions aur parameters ko store karta hai)
+
+                    • Outer Environment Reference
+                        Reference to parent lexical environment.
+                        (Parent scope ki taraf point karta hai)
+
+                        Used to create scope chain.
+                        (Scope chain banane ke liye use hota hai)
+
+
+
+B. Web APIs :
+    Browser/Node provided asynchronous features.
+    (Browser ya Node ke extra async features)
+
+    Examples :
+            • setTimeout()
+            • fetch()
+            • DOM Events
+            • addEventListener()
+
+
+C. Callback Queue :
+    Stores completed asynchronous callbacks.
+    (Completed async callbacks temporarily yaha wait karte hain)
+
+
+D. Microtask Queue :
+    Stores high priority asynchronous tasks.
+    (High priority async tasks yaha store hote hain)
+
+    Contains :
+            • Promise.then()
+            • Promise.catch()
+            • Promise.finally()
+            • queueMicrotask()
+
+    Microtasks execute before callback queue tasks.
+    (Microtasks callback queue se pehle execute hote hain)
+
+
+
+E. Event Loop :
+    Continuously checks whether Call Stack is empty or not.
+    (Ye continuously check karta hai stack empty hai ya nahi)
+
+    If stack becomes empty :
+            • First executes all microtasks
+            • Then executes callback queue tasks
+
+    (Pehle microtasks execute hote hain fir normal callbacks execute hote hain)
+
+    Priority :
+            Microtask Queue > Callback Queue
+
+
