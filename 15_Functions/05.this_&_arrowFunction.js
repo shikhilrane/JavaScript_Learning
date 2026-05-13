@@ -94,5 +94,11 @@ function outer() {
 outer();        // it will show something because, it's nearest functional scope (lexical scope) is outer() 
 
 
-// Normal function = thi of Object through which function is called
-// Arrow functional = this of Nearest functional (lexical) scope
+// Normal Function :
+// 'this' refers to the object through which the function is called
+// (Normal function me 'this' us object ko refer karta hai jiske through function call hua ho)
+
+
+// Arrow Function :
+// 'this' refers to the nearest lexical scope
+// (Arrow function me 'this' nearest outer scope ka 'this' use karta hai)

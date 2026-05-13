@@ -44,6 +44,7 @@ let system1 = {
     return `This laptop is of brand ${this.brand} and of price ${this.price} and operating system is ${os}`;
   }
 };
+
 let system2 = Object.create(system1);
 system2.brand = "windows";
 system2.price = "80000"
